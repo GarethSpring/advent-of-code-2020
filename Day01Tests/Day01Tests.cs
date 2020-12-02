@@ -7,7 +7,7 @@ namespace Day01Tests
     public class Day01Tests
     {
         [TestMethod]
-        public void Day01Test()
+        public void Day01Part1Test()
         {
             var day1 = new Logic();
 
@@ -18,7 +18,7 @@ namespace Day01Tests
         }
 
         [TestMethod]
-        public void Day02Test()
+        public void Day01Part2Test()
         {
             var day1 = new Logic();
 
