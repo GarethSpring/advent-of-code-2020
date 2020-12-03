@@ -49,7 +49,7 @@ namespace Logic
 
         private List<int> ReadInput()
         {
-            var input = File.ReadAllLines(Environment.CurrentDirectory + "\\Input\\Input1.txt");
+            var input = File.ReadAllLines(Environment.CurrentDirectory + "/Input/Input1.txt");
             var inputList = new List<int>();
 
             foreach (var line in input)

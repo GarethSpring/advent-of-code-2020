@@ -72,7 +72,7 @@ namespace Logic
         {
             grid = new Dictionary<(int, int), char>();
 
-            var input = File.ReadAllLines(Environment.CurrentDirectory + "\\Input\\Input3.txt");
+            var input = File.ReadAllLines(Environment.CurrentDirectory + "/Input/Input3.txt");
 
             int y = 0;
 
