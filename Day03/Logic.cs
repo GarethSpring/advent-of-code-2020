@@ -10,7 +10,7 @@ namespace Day03
         private int slopeLength;
         private int slopeWidth;
 
-        public int Part1()
+        public long Part1()
         {
             ReadInput();
 
@@ -25,35 +25,23 @@ namespace Day03
 
             CloneSlope();
 
-            long x = 0;
-
-            x = TraverseAndCount(1, 1);
-
-            x *= TraverseAndCount(3, 1);
-
-            x *= TraverseAndCount(5, 1);
-
-            x *= TraverseAndCount(7, 1);
-
-            x *= TraverseAndCount(1, 2);
-
-            return x;
+            return TraverseAndCount(1, 1) * TraverseAndCount(3, 1) * TraverseAndCount(5, 1) *
+                TraverseAndCount(7, 1) * TraverseAndCount(1, 2);
         }
 
-        private int TraverseAndCount(int across, int down)
+        private long TraverseAndCount(int across, int down)
         {
             int posX = 0;
             int posY = 0;
             bool running = true;
             int treeCount = 0;
 
-
             while (running)
             {
                 posX += across;
                 posY += down;
 
-                char c = '*';
+                char c;
                 running = grid.TryGetValue((posX, posY), out c);
                 if (c == '#')
                 {
@@ -66,7 +54,7 @@ namespace Day03
 
         private void CloneSlope()
         {
-            var repetitions= 1000;
+            var repetitions= 100;
 
             for (int i = 1; i <= repetitions; i++)
             {
@@ -84,7 +72,7 @@ namespace Day03
         {
             grid = new Dictionary<(int, int), char>();
 
-            var input = File.ReadAllLines(Environment.CurrentDirectory + "\\Input\\Input.txt");
+            var input = File.ReadAllLines(Environment.CurrentDirectory + "\\Input\\Input3.txt");
 
             int y = 0;
 

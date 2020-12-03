@@ -1,7 +1,7 @@
 using Day01;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Day01Tests
+namespace Tests
 {
     [TestClass]
     public class Day01Tests

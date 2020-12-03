@@ -60,7 +60,7 @@ namespace Day02
 
         private void ReadInput()
         {
-            var input = File.ReadAllLines(Environment.CurrentDirectory + "\\Input\\Input.txt");
+            var input = File.ReadAllLines(Environment.CurrentDirectory + "\\Input\\Input2.txt");
             var inputList = new List<PolicyPassword>();
 
             foreach (var line in input)
