@@ -1,4 +1,4 @@
-using Day02;
+using Logic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
@@ -9,7 +9,7 @@ namespace Tests
         [TestMethod]
         public void Day02Part1Test()
         {
-            var day2 = new Logic();
+            var day2 = new Day2();
 
             var actual = day2.Part1();
             var expected = 456;
@@ -20,7 +20,7 @@ namespace Tests
         [TestMethod]
         public void Day02Part2Test()
         {
-            var day2 = new Logic();
+            var day2 = new Day2();
 
             var actual = day2.Part2();
             var expected = 308;

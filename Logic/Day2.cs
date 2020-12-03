@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using Logic.Models;
 
-namespace Day02
+namespace Logic
 {
-    public class Logic
+    public class Day2
     {
         private List<PolicyPassword> policyPasswordList;
 

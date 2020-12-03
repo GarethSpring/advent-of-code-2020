@@ -2,9 +2,9 @@
 using System.IO;
 using System.Collections.Generic;
 
-namespace Day01
+namespace Logic
 {
-    public class Logic
+    public class Day1
     {
         public int Part1()
         {

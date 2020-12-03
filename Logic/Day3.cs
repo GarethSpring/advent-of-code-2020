@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace Day03
+namespace Logic
 {
-    public class Logic
+    public class Day3
     {
         private Dictionary<(int, int), char> grid;
         private int slopeLength;
