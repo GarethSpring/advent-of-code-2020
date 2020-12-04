@@ -53,40 +53,28 @@ namespace Logic.Helpers
             return validPassports;
         }
 
-        public bool ValidateByr(string value)
+        private bool ValidateByr(string value)
         {
             var byr = Convert.ToInt32(value);
-            if (!(byr >= 1920 && byr <= 2002))
-            {
-                return false;
-            }
 
-            return true;
+            return byr >= 1920 && byr <= 2002 ? true : false;
         }
 
-        public bool ValidateIyr(string value)
+        private bool ValidateIyr(string value)
         {
             var iyr = Convert.ToInt32(value);
-            if (!(iyr >= 2010 && iyr <= 2020))
-            {
-                return false;
-            }
 
-            return true;
+            return iyr >= 2010 && iyr <= 2020 ? true : false;
         }
 
-        public bool ValidateEyr(string value)
+        private bool ValidateEyr(string value)
         {
             var eyr = Convert.ToInt32(value);
-            if (!(eyr >= 2020 && eyr <= 2030))
-            {
-                return false;
-            }
 
-            return true;
+            return eyr >= 2020 && eyr <= 2030 ? true : false;
         }
 
-        public bool ValidateHgt(string value)
+        private bool ValidateHgt(string value)
         {
             Regex r = new Regex(@"([0-9]{2,3})(in|cm)");
             Match match = r.Match(value);
@@ -111,7 +99,7 @@ namespace Logic.Helpers
             return true;
         }
 
-        public bool ValidateHcl(string value)
+        private bool ValidateHcl(string value)
         {
             Regex r = new Regex(@"#[0-9a-f]{6}\b");
             Match match2 = r.Match(value);
@@ -119,22 +107,22 @@ namespace Logic.Helpers
             return match2.Success ? true : false;
         }
 
-        public bool ValidateEcl(string value)
+        private bool ValidateEcl(string value)
         {
             List<string> eyeColours = new List<string>() { "amb", "blu", "brn", "gry", "grn", "hzl", "oth" };
-            bool found = false;
+
             foreach (string colour in eyeColours)
             {
                 if (colour == value)
                 {
-                    found = true;
+                    return true;
                 }
             }
 
-            return found ? true : false;
+            return false;
         }
 
-        public bool ValidatePid(string value)
+        private bool ValidatePid(string value)
         {
             Regex z = new Regex(@"^[0-9]{9}\b");
             Match match3 = z.Match(value);

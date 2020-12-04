@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace Logic
 {
@@ -23,15 +24,11 @@ namespace Logic
         {
             ReadInput();
 
-            passports = passportValidator.FirstPassValidation(passports);
-
-            return CountValidPassports2();
+            return passportValidator.FirstPassValidation(passports).Where(p => IsValid(p)).Count();
         }
 
         private bool IsValid(Dictionary<string,string> passport)
         {
-            var passportValidator = new PassportValidator();
-
             foreach (string key in passport.Keys)
             {
                 if (!passportValidator.KeyValidators[key].Invoke(passport[key]))
@@ -41,21 +38,6 @@ namespace Logic
             }
 
             return true;
-        }
-
-        private int CountValidPassports2()
-        {
-            int validCount = 0;
-
-            foreach (var passport in passports)
-            {
-                if (IsValid(passport))
-                {
-                    validCount++;
-                }
-            }
-
-            return validCount;
         }
 
         private void ReadInput()
