@@ -53,18 +53,18 @@ namespace Logic
 
         private int ParseRow(char[] data, int minRange, int maxRange)
         {
-            // Calc Row
             for (int i = 0; i < 7; i++)
             {
-                // Lower
+                var discard = (maxRange + 1 - minRange) / 2;
+
                 if (data[i] == 'F')
                 {
-                    maxRange = ((maxRange + 1 - minRange) / 2) - 1 + minRange;
+                    maxRange =  discard - 1 + minRange;
                 }
 
                 if (data[i] == 'B')
                 {
-                    minRange = ((maxRange + 1 - minRange) / 2) + minRange;
+                    minRange = discard + minRange;
                 }
             }
 
@@ -73,18 +73,18 @@ namespace Logic
 
         private int ParseColumn(char[] data, int minRange, int maxRange)
         {
-            // Calc Row
             for (int i = 7; i < 10; i++)
             {
-                // Lower
+                var discard = (maxRange + 1 - minRange) / 2;
+
                 if (data[i] == 'L')
                 {
-                    maxRange = ((maxRange + 1 - minRange) / 2) - 1 + minRange;
+                    maxRange = discard - 1 + minRange;
                 }
 
                 if (data[i] == 'R')
                 {
-                    minRange = ((maxRange + 1 - minRange) / 2) + minRange;
+                    minRange = discard + minRange;
                 }
             }
 
