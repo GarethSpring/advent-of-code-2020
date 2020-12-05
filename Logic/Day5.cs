@@ -14,16 +14,12 @@ namespace Logic
         {
             ReadInput();
 
-            DecodePasses();
-
             return passes.Max(p => p.SeatId);
         }
 
         public int Part2()
         {
             ReadInput();
-
-            DecodePasses();
 
             for (int r = passes.Min(p => p.Row) ; r < passes.Max(p => p.Row); r++)
             {
@@ -37,18 +33,6 @@ namespace Logic
             }
 
             return -1;
-        }
-
-        private void DecodePasses()
-        {
-            foreach (var pass in passes)
-            {
-                var chars = pass.Data.ToCharArray();
-
-                pass.Row = ParseRow(chars, 0, 127);
-                pass.Column = ParseColumn(chars, 0, 7);
-                pass.SeatId = pass.Row * 8 + pass.Column;
-            }
         }
 
         private int ParseRow(char[] data, int minRange, int maxRange)
@@ -99,6 +83,12 @@ namespace Logic
             {
                 var pass = new BoardingPass { Data = line };
                 passes.Add(pass);
+
+                var chars = pass.Data.ToCharArray();
+
+                pass.Row = ParseRow(chars, 0, 127);
+                pass.Column = ParseColumn(chars, 0, 7);
+                pass.SeatId = pass.Row * 8 + pass.Column;
             }
         }
     }
