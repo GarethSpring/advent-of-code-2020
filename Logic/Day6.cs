@@ -53,25 +53,11 @@ namespace Logic
 
             foreach (var group in groups)
             {
-                var distinctAnswers = group.Persons.SelectMany(p => p.YesAnswers).Distinct();
-                var yesses = new List<List<char>>();
-   
-                foreach (var response in group.Persons)
-                {
-                    yesses.Add(response.YesAnswers.ToList());
-                }
+                var yesses = group.Persons.Select(r => r.YesAnswers).ToList();
 
-                foreach (char c in distinctAnswers)
+                foreach (char distinctAnswer in group.Persons.SelectMany(p => p.YesAnswers).Distinct())
                 {
-                    bool foundInAll = true;
-                    foreach (List<char> x in yesses)
-                    {
-                        if (!x.Contains(c))
-                        {
-                            foundInAll = false;
-                        }
-                    }
-                    if (foundInAll)
+                    if (yesses.All(x => x.Contains(distinctAnswer)))
                     {
                         yesCount++;
                     }
