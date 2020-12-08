@@ -10,7 +10,7 @@ namespace Logic.Helpers
 
         public long Acc { get; set; }
 
-        public  int OpPointer { get; set; }
+        public int OpPointer { get; set; }
 
         public bool Running { get; set; }
 
@@ -63,7 +63,6 @@ namespace Logic.Helpers
 
             return -2;
         }
-
         public void Reset()
         {
             Acc = 0;
