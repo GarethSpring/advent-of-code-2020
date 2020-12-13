@@ -40,7 +40,7 @@ namespace Logic
         /// </summary>
         public long Part2(string input)
         {
-            busIds = input.Split(',').ToList().ToList();
+            busIds = input.Split(',').ToList();
 
             long minTimeStamp = 0;
             var step = long.Parse(busIds[0]);
